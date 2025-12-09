@@ -1,0 +1,923 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>HR EXTENTIA - Votre partenaire stratégique en ressources humaines</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="HR EXTENTIA - Votre partenaire stratégique en ressources humaines : Services RH, Recrutement, Formation et Consulting."
+  />
+
+  <style>
+    :root {
+      --primary: #111827;
+      --accent: #f5a623;
+      --accent-soft: #fff4dd;
+      --bg: #f9fafb;
+      --border: #e5e7eb;
+      --text: #4b5563;
+      --white: #ffffff;
+      --radius-lg: 18px;
+      --shadow-soft: 0 16px 30px rgba(15, 23, 42, 0.10);
+      --transition: all 0.22s ease;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* HEADER / NAV */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .nav-logo-img {
+      height: 40px;
+      width: auto;
+    }
+
+    .nav-brand-text {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .nav-brand-text span:last-child {
+      font-size: 0.65rem;
+      opacity: 0.8;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.25rem;
+      color: #6b7280;
+      font-weight: 500;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid var(--primary);
+      background: var(--primary);
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .nav-cta:hover {
+      background: var(--white);
+      color: var(--primary);
+    }
+
+    .nav-toggle {
+      display: none;
+      border: none;
+      background: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 3.2rem 0 3.5rem;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+      gap: 2.5rem;
+      align-items: center;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--primary);
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 1rem;
+    }
+
+    .badge-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    .hero-title {
+      font-size: clamp(2.1rem, 3vw + 1.3rem, 3rem);
+      color: var(--primary);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+
+    .hero-title span { color: var(--accent); }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: #6b7280;
+      max-width: 36rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.3rem;
+      padding: 0.7rem 1.4rem;
+      border-radius: 999px;
+      border: none;
+      cursor: pointer;
+      font-size: 0.9rem;
+      font-weight: 600;
+      transition: var(--transition);
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: var(--white);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn-outline {
+      background: transparent;
+      border: 1px solid var(--border);
+      color: var(--primary);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      background: #f3f4f6;
+    }
+
+    .hero-kpis {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+      color: #6b7280;
+    }
+
+    .hero-kpi strong {
+      display: block;
+      color: var(--primary);
+      font-size: 1.05rem;
+    }
+
+    .hero-panel {
+      background: var(--bg);
+      border-radius: 22px;
+      padding: 1.3rem 1.4rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-panel-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-panel-text {
+      font-size: 0.88rem;
+      color: #6b7280;
+      margin-bottom: 0.9rem;
+    }
+
+    .hero-tagline {
+      font-size: 0.77rem;
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      color: #9ca3af;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-panel-list {
+      list-style: none;
+      font-size: 0.85rem;
+      color: #4b5563;
+    }
+
+    .hero-panel-list li {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      margin-bottom: 0.4rem;
+    }
+
+    .hero-panel-list li::before {
+      content: "";
+      width: 7px;
+      height: 7px;
+      border-radius: 999px;
+      background: var(--accent);
+    }
+
+    /* Sections génériques */
+
+    section { padding: 3rem 0; }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.3rem;
+    }
+
+    .section-kicker {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-size: 1.6rem;
+      color: var(--primary);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.95rem;
+      color: #6b7280;
+      max-width: 32rem;
+      margin: 0 auto;
+    }
+
+    /* SERVICES */
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.4rem;
+    }
+
+    .service-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 1.2rem 1.2rem 1.3rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      transition: var(--transition);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 170px;
+    }
+
+    .service-card::before {
+      content: "";
+      width: 24px;
+      height: 3px;
+      border-radius: 999px;
+      background: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    .service-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.4rem;
+    }
+
+    .service-text {
+      font-size: 0.86rem;
+      color: #6b7280;
+    }
+
+    .service-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+
+    /* ABOUT */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .about-text {
+      font-size: 0.94rem;
+      color: #4b5563;
+    }
+
+    .about-text h3 {
+      font-size: 1.2rem;
+      color: var(--primary);
+      margin-bottom: 0.6rem;
+    }
+
+    .about-text p + p { margin-top: 0.4rem; }
+
+    .about-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.8rem;
+    }
+
+    .about-pill {
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      font-size: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      color: #6b7280;
+    }
+
+    .about-card {
+      background: var(--white);
+      border-radius: 22px;
+      padding: 1.3rem 1.4rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    .about-card strong { color: var(--primary); }
+
+    /* CONTACT */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, 1.1fr);
+      gap: 1.6rem;
+    }
+
+    .contact-card {
+      background: var(--white);
+      border-radius: 22px;
+      padding: 1.3rem 1.4rem 1.5rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .contact-card h3 {
+      font-size: 1.05rem;
+      color: var(--primary);
+      margin-bottom: 0.4rem;
+    }
+
+    .contact-card p {
+      font-size: 0.9rem;
+      color: #6b7280;
+      margin-bottom: 0.6rem;
+    }
+
+    .contact-info {
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    .contact-info div { margin-bottom: 0.35rem; }
+
+    .contact-info strong { color: var(--primary); }
+
+    .social {
+      display: flex;
+      gap: 0.6rem;
+      margin-top: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .social a {
+      padding: 0.35rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      font-size: 0.8rem;
+      color: #4b5563;
+      background: #f9fafb;
+    }
+
+    .social a:hover {
+      border-color: var(--accent);
+      color: var(--primary);
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 0.8rem;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+
+    .field label {
+      font-size: 0.8rem;
+      font-weight: 600;
+      color: #4b5563;
+    }
+
+    .field input,
+    .field textarea,
+    .field select {
+      border-radius: 999px;
+      border: 1px solid #d1d5db;
+      padding: 0.6rem 0.9rem;
+      font-size: 0.9rem;
+      font-family: inherit;
+      outline: none;
+      background: #f9fafb;
+      transition: var(--transition);
+    }
+
+    .field textarea {
+      border-radius: 16px;
+      min-height: 110px;
+      resize: vertical;
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px rgba(245, 166, 35, 0.3);
+      background: #ffffff;
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--border);
+      background: #111827;
+      color: #e5e7eb;
+      font-size: 0.8rem;
+      padding: 1.1rem 0 1.3rem;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-links a { color: #d1d5db; }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* RESPONSIVE TABLETTE */
+
+    @media (max-width: 960px) {
+      .hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .services-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .about-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+    }
+
+    /* RESPONSIVE MOBILE */
+
+    @media (max-width: 720px) {
+      .nav-links {
+        position: absolute;
+        inset: 58px 1.5rem auto 1.5rem;
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: var(--shadow-soft);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.8rem 1rem;
+        display: none;
+      }
+
+      .nav-links.open { display: flex; }
+
+      .nav-cta { display: none; }
+      .nav-toggle { display: block; }
+
+      .hero { padding-top: 2.4rem; }
+
+      .services-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .container {
+        padding: 0 1.1rem;
+      }
+    }
+
+    /* PETIT SMARTPHONE */
+
+    @media (max-width: 480px) {
+      body { font-size: 14px; }
+      .hero-title { font-size: 1.8rem; }
+      .hero-subtitle { font-size: 0.95rem; }
+      .hero { padding: 2.4rem 0 2.2rem; }
+      .nav { padding: 0.7rem 0; }
+      .nav-logo-img { height: 34px; }
+      .btn { width: 100%; justify-content: center; }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <div class="nav-left">
+        <a href="#accueil">
+          <img src="assets/logo-hr-extentia.png" alt="HR EXTENTIA" class="nav-logo-img" />
+        </a>
+        <div class="nav-brand-text">
+          <span>HR EXTENTIA</span>
+          <span>CONSULTING &amp; TRAINING</span>
+        </div>
+      </div>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="#accueil">Accueil</a>
+        <a href="#services">Services RH</a>
+        <a href="formation.html">Formations</a>
+        <a href="a-propos.html">Le cabinet</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <button class="nav-cta" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+        Contacter un consultant
+      </button>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">
+        ☰
+      </button>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <main id="accueil" class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="badge">
+          <span class="badge-dot"></span>
+          Votre partenaire stratégique en ressources humaines
+        </div>
+        <h1 class="hero-title">
+          Des solutions complètes pour <span>structurer et développer</span> vos ressources humaines.
+        </h1>
+        <p class="hero-subtitle">
+          Nous accompagnons les entreprises dans la gestion RH, le recrutement, la formation et le consulting afin
+          d’aligner vos talents avec vos enjeux business.
+        </p>
+
+        <div class="hero-actions">
+          <button class="btn btn-primary" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">
+            Parler de mon besoin RH
+          </button>
+          <button class="btn btn-outline" onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})">
+            Découvrir nos services
+          </button>
+        </div>
+
+        <div class="hero-kpis">
+          <div class="hero-kpi">
+            <strong>Services RH</strong>
+            Structuration &amp; optimisation de vos processus.
+          </div>
+          <div class="hero-kpi">
+            <strong>Recrutement</strong>
+            Identification et sélection de talents adaptés.
+          </div>
+          <div class="hero-kpi">
+            <strong>Formation &amp; Consulting</strong>
+            Programmes ciblés et accompagnement stratégique.
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-panel" aria-label="Résumé de l’accompagnement HR EXTENTIA">
+        <div class="hero-tagline">Accompagnement RH</div>
+        <div class="hero-panel-title">Une approche globale et pragmatique</div>
+        <p class="hero-panel-text">
+          HR EXTENTIA intervient à chaque étape du cycle RH pour vous aider à sécuriser vos décisions
+          et à renforcer l’engagement de vos collaborateurs.
+        </p>
+        <ul class="hero-panel-list">
+          <li>Analyse de votre organisation &amp; de vos besoins RH.</li>
+          <li>Déploiement de processus clairs et efficaces.</li>
+          <li>Accompagnement de vos équipes et de vos managers.</li>
+          <li>Suivi et ajustements en fonction de vos priorités.</li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <!-- SERVICES -->
+  <section id="services">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Nos expertises</div>
+        <h2 class="section-title">Une offre RH cohérente et complète</h2>
+        <p class="section-subtitle">
+          Nous proposons quatre pôles complémentaires pour répondre à l’ensemble de vos enjeux RH.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <article class="service-card">
+          <h3 class="service-title">Services RH</h3>
+          <p class="service-text">
+            Des solutions complètes pour optimiser vos processus RH, de la gestion des talents à l’évaluation
+            des performances.
+          </p>
+        </article>
+
+        <article class="service-card">
+          <h3 class="service-title">Formation</h3>
+          <p class="service-text">
+            Investissez dans le développement de vos collaborateurs avec des programmes de formation adaptés
+            à vos besoins et à vos métiers.
+          </p>
+        </article>
+
+        <article class="service-card">
+          <h3 class="service-title">Recrutement</h3>
+          <p class="service-text">
+            Identifier et attirer les talents qui correspondent à vos exigences et à votre culture d’entreprise.
+          </p>
+        </article>
+
+        <article class="service-card">
+          <h3 class="service-title">Consulting</h3>
+          <p class="service-text">
+            Des solutions sur mesure pour relever vos défis RH grâce à un conseil stratégique et opérationnel.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- QUI SOMMES-NOUS ? (aperçu) -->
+  <section id="about">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Qui sommes-nous ?</div>
+        <h2 class="section-title">HR EXTENTIA, un partenaire de proximité</h2>
+        <p class="section-subtitle">
+          Cabinet de conseil, de recrutement et de formation, HR EXTENTIA se positionne comme un relais entre les
+          entreprises et les talents.
+        </p>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-text">
+          <h3>Une équipe dédiée à vos enjeux RH</h3>
+          <p>
+            Nous offrons des solutions complètes en matière de gestion RH, recrutement, formation et consulting.
+            Notre approche est orientée résultats, avec une forte attention portée à la réalité terrain de vos équipes.
+          </p>
+          <p>
+            À travers nos interventions, nous cherchons à créer un environnement structuré, clair et motivant pour
+            vos collaborateurs, tout en sécurisant vos décisions RH.
+          </p>
+          <div class="about-pill-row">
+            <div class="about-pill">Ressources humaines</div>
+            <div class="about-pill">Recrutement</div>
+            <div class="about-pill">Formation</div>
+            <div class="about-pill">Consulting</div>
+          </div>
+        </div>
+
+        <aside class="about-card">
+          <p>
+            Basée à <strong>Immeuble Lac de Constance - A2-2 - Les Berges du Lac, Tunis, Tunisia</strong>,
+            HR EXTENTIA accompagne des entreprises de toutes tailles et de différents secteurs.
+          </p>
+          <p style="margin-top:0.5rem;">
+            Pour une présentation détaillée du cabinet, découvrez la page
+            <a href="a-propos.html" style="color:#111827; font-weight:600;">« Le cabinet »</a>.
+          </p>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-kicker">Contact</div>
+        <h2 class="section-title">Nous contacter</h2>
+        <p class="section-subtitle">
+          Décrivez-nous vos besoins, un consultant HR EXTENTIA reviendra vers vous dans les meilleurs délais.
+        </p>
+      </div>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Coordonnées</h3>
+          <p>Vous pouvez nous joindre directement par téléphone ou par e-mail.</p>
+          <div class="contact-info">
+            <div><strong>Téléphone :</strong> +216 25 395 342</div>
+            <div>
+              <strong>E-mail :</strong>
+              <a href="mailto:hello@hrextentia.com">hello@hrextentia.com</a>
+            </div>
+            <div style="margin-top:0.6rem;">
+              <strong>Adresse :</strong><br />
+              Immeuble Lac de Constance - A2-2<br />
+              Les Berges du Lac, Tunis, Tunisia
+            </div>
+          </div>
+
+          <div style="margin-top:1.1rem; font-size:0.88rem;">
+            Suivez HR EXTENTIA :
+            <div class="social">
+              <a href="https://www.facebook.com/profile.php?id=100088255690504" target="_blank" rel="noopener noreferrer">
+                Facebook
+              </a>
+              <a href="https://www.linkedin.com/company/hr-extentia/" target="_blank" rel="noopener noreferrer">
+                LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact-card">
+          <h3>Formulaire de contact</h3>
+          <p>Ce formulaire est statique. Connectez-le à votre back-end, outil de mailing ou CRM.</p>
+          <form class="contact-form">
+            <div class="field">
+              <label for="name">Nom &amp; prénom</label>
+              <input id="name" name="name" type="text" placeholder="Votre nom" required />
+            </div>
+            <div class="field">
+              <label for="company">Entreprise</label>
+              <input id="company" name="company" type="text" placeholder="Nom de votre société" />
+            </div>
+            <div class="field">
+              <label for="email">E-mail</label>
+              <input id="email" name="email" type="email" placeholder="vous@exemple.com" required />
+            </div>
+            <div class="field">
+              <label for="topic">Type de besoin</label>
+              <select id="topic" name="topic">
+                <option value="">Sélectionner une thématique</option>
+                <option value="services">Services RH</option>
+                <option value="recrutement">Recrutement</option>
+                <option value="formation">Formation</option>
+                <option value="consulting">Consulting RH</option>
+                <option value="autre">Autre</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="message">Message</label>
+              <textarea id="message" name="message" placeholder="Décrivez votre besoin..."></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="margin-top:0.3rem;">
+              Envoyer ma demande
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-row">
+      <div>© 2024 HR EXTENTIA. All Right Reserved.</div>
+      <div class="footer-links">
+        <a href="#accueil">Accueil</a>
+        <span>·</span>
+        <a href="#services">Services RH</a>
+        <span>·</span>
+        <a href="formation.html">Formations</a>
+        <span>·</span>
+        <a href="a-propos.html">Le cabinet</a>
+        <span>·</span>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    navToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+      });
+    });
+  </script>
+</body>
+</html>
