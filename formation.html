@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Formations - HR EXTENTIA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Formations HR EXTENTIA : management, ressources humaines, soft skills et dispositifs sur-mesure."
+  />
+
+  <style>
+    :root {
+      --primary: #111827;
+      --accent: #f5a623;
+      --accent-soft: #fff4dd;
+      --bg: #f9fafb;
+      --border: #e5e7eb;
+      --text: #4b5563;
+      --white: #ffffff;
+      --radius-lg: 18px;
+      --shadow-soft: 0 16px 30px rgba(15, 23, 42, 0.10);
+      --transition: all 0.22s ease;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* HEADER / NAV */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .nav-logo-img {
+      height: 40px;
+      width: auto;
+    }
+
+    .nav-brand-text {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .nav-brand-text span:last-child {
+      font-size: 0.65rem;
+      opacity: 0.8;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.25rem;
+      color: #6b7280;
+      font-weight: 500;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid var(--primary);
+      background: var(--primary);
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .nav-cta:hover {
+      background: var(--white);
+      color: var(--primary);
+    }
+
+    .nav-toggle {
+      display: none;
+      border: none;
+      background: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* HERO */
+
+    .hero {
+      padding: 3rem 0 2.6rem;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .hero-kicker {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 2.5vw + 1.3rem, 2.6rem);
+      color: var(--primary);
+      line-height: 1.1;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: #6b7280;
+      max-width: 40rem;
+    }
+
+    .hero-badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.9rem;
+      font-size: 0.78rem;
+    }
+
+    .hero-badge {
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #6b7280;
+    }
+
+    /* Sections génériques */
+
+    section {
+      padding: 3rem 0;
+    }
+
+    .section-header {
+      margin-bottom: 1.8rem;
+    }
+
+    .section-kicker {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.94rem;
+      color: #6b7280;
+      max-width: 36rem;
+    }
+
+    /* Types de formation */
+
+    .cards-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1.4rem;
+      margin-top: 0.8rem;
+    }
+
+    .card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 1.1rem 1.2rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.9rem;
+      color: #4b5563;
+      transition: var(--transition);
+      min-height: 160px;
+    }
+
+    .card::before {
+      content: "";
+      width: 22px;
+      height: 3px;
+      border-radius: 999px;
+      background: var(--accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .card-title {
+      font-size: 1rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+    }
+
+    .card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+
+    /* Programme type */
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .text-block {
+      font-size: 0.94rem;
+      color: #4b5563;
+    }
+
+    .text-block p + p {
+      margin-top: 0.5rem;
+    }
+
+    .list-check {
+      list-style: none;
+      padding-left: 0;
+      margin-top: 0.7rem;
+      font-size: 0.9rem;
+    }
+
+    .list-check li {
+      display: flex;
+      gap: 0.5rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .list-check li::before {
+      content: "•";
+      color: var(--accent);
+      font-weight: 700;
+      margin-top: -1px;
+    }
+
+    .side-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 1.2rem 1.3rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    .side-card-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.4rem;
+    }
+
+    /* Modalités */
+
+    .mod-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.3rem;
+      margin-top: 0.8rem;
+    }
+
+    .mod-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    .mod-title {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+    }
+
+    /* Process */
+
+    .steps {
+      margin-top: 0.8rem;
+      display: grid;
+      gap: 0.7rem;
+      font-size: 0.9rem;
+    }
+
+    .step {
+      display: flex;
+      gap: 0.7rem;
+      align-items: flex-start;
+    }
+
+    .step-number {
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--primary);
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      margin-top: 0.1rem;
+    }
+
+    .step-title {
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 0.9rem;
+    }
+
+    .step-text {
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
+
+    /* CTA final */
+
+    .cta-final {
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 24px;
+      padding: 1.6rem 1.7rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 2.2rem;
+    }
+
+    .cta-final h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .cta-final p {
+      font-size: 0.9rem;
+      opacity: 0.92;
+    }
+
+    .cta-final-btn {
+      padding: 0.8rem 1.6rem;
+      border-radius: 999px;
+      border: none;
+      background: var(--accent);
+      color: #111827;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .cta-final-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--border);
+      background: #111827;
+      color: #e5e7eb;
+      font-size: 0.8rem;
+      padding: 1.1rem 0 1.3rem;
+      margin-top: 3rem;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-links a { color: #d1d5db; }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* RESPONSIVE TABLETTE */
+
+    @media (max-width: 960px) {
+      .cards-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .two-col {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .mod-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    /* RESPONSIVE MOBILE */
+
+    @media (max-width: 720px) {
+      .nav-links {
+        position: absolute;
+        inset: 58px 1.5rem auto 1.5rem;
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: var(--shadow-soft);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.8rem 1rem;
+        display: none;
+      }
+
+      .nav-links.open { display: flex; }
+
+      .nav-cta { display: none; }
+      .nav-toggle { display: block; }
+
+      .hero { padding-top: 2.4rem; }
+
+      .cards-grid,
+      .mod-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .container {
+        padding: 0 1.1rem;
+      }
+    }
+
+    /* PETIT SMARTPHONE */
+
+    @media (max-width: 480px) {
+      body { font-size: 14px; }
+      .hero-title { font-size: 1.8rem; }
+      .hero-subtitle { font-size: 0.95rem; }
+      .hero { padding: 2.4rem 0 2.2rem; }
+      .cta-final {
+        padding: 1.3rem 1.2rem;
+      }
+      .cta-final-btn {
+        width: 100%;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <div class="nav-left">
+        <a href="index.html#accueil">
+          <img src="assets/logo-hr-extentia.png" alt="HR EXTENTIA" class="nav-logo-img" />
+        </a>
+        <div class="nav-brand-text">
+          <span>HR EXTENTIA</span>
+          <span>CONSULTING &amp; TRAINING</span>
+        </div>
+      </div>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html#accueil">Accueil</a>
+        <a href="index.html#services">Services RH</a>
+        <a href="formation.html">Formations</a>
+        <a href="a-propos.html">Le cabinet</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+      <button class="nav-cta" onclick="window.location.href='index.html#contact'">
+        Contacter un consultant
+      </button>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">
+        ☰
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-kicker">Formations</div>
+        <h1 class="hero-title">Des parcours de formation pensés pour vos équipes et vos managers.</h1>
+        <p class="hero-subtitle">
+          HR EXTENTIA conçoit et anime des dispositifs de formation adaptés à vos enjeux :
+          management, ressources humaines, soft skills et programmes sur-mesure.
+        </p>
+        <div class="hero-badge-row">
+          <span class="hero-badge">Présentiel</span>
+          <span class="hero-badge">Distanciel</span>
+          <span class="hero-badge">Hybride</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- TYPES DE FORMATION -->
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Domaines couverts</div>
+          <h2 class="section-title">Des thématiques alignées avec vos besoins</h2>
+          <p class="section-subtitle">
+            Nous construisons avec vous des parcours de formation concrets, ancrés dans la réalité de vos métiers
+            et de votre organisation.
+          </p>
+        </div>
+
+        <div class="cards-grid">
+          <article class="card">
+            <h3 class="card-title">Management &amp; leadership</h3>
+            <p>
+              Positionnement du manager, communication, feedback, conduite du changement,
+              animation d’équipe au quotidien.
+            </p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">Ressources humaines</h3>
+            <p>
+              Pratiques RH, entretiens, gestion des talents, pilotage de la performance,
+              recrutement et intégration des collaborateurs.
+            </p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">Soft skills &amp; efficacité</h3>
+            <p>
+              Communication, collaboration, posture professionnelle, gestion du temps et des priorités,
+              travail en mode projet.
+            </p>
+          </article>
+          <article class="card">
+            <h3 class="card-title">Programmes sur-mesure</h3>
+            <p>
+              Conception de dispositifs adaptés à votre contexte : parcours managers,
+              écoles internes, parcours d’intégration, etc.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROGRAMME TYPE -->
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Approche pédagogique</div>
+          <h2 class="section-title">Un programme pensé pour la mise en pratique</h2>
+          <p class="section-subtitle">
+            Chaque formation suit un fil conducteur commun, tout en restant personnalisable
+            à vos objectifs et à votre public.
+          </p>
+        </div>
+
+        <div class="two-col">
+          <div class="text-block">
+            <p>Un programme type s’articule généralement autour :</p>
+            <ul class="list-check">
+              <li>de temps d’apports structurés, illustrés par des exemples concrets ;</li>
+              <li>d’exercices individuels et en sous-groupes ;</li>
+              <li>de mises en situation issues de votre réalité de terrain ;</li>
+              <li>d’engagements personnels à l’issue de la formation.</li>
+            </ul>
+            <p>
+              Le rythme, la durée et le format sont ajustés en fonction de votre organisation
+              (sessions courtes, journées complètes, parcours étalés dans le temps…).
+            </p>
+          </div>
+
+          <aside class="side-card">
+            <div class="side-card-title">Exemple de structure</div>
+            <ul class="list-check">
+              <li>Diagnostic &amp; recueil des besoins.</li>
+              <li>Co-construction des objectifs pédagogiques.</li>
+              <li>Conception du programme et des supports.</li>
+              <li>Animation de la formation.</li>
+              <li>Évaluation à chaud et à froid, plan d’actions.</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- MODALITÉS -->
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Modalités</div>
+          <h2 class="section-title">Des formats flexibles</h2>
+          <p class="section-subtitle">
+            Nous adaptons l’organisation des formations à vos contraintes opérationnelles.
+          </p>
+        </div>
+
+        <div class="mod-grid">
+          <article class="mod-card">
+            <h3 class="mod-title">Format</h3>
+            <p>
+              Interventions en présentiel, distanciel ou hybride. Possibilité de mixer séances synchrones
+              et travail asynchrone entre les modules.
+            </p>
+          </article>
+          <article class="mod-card">
+            <h3 class="mod-title">Public</h3>
+            <p>
+              Managers, fonctions RH, équipes opérationnelles, fonctions support.
+              Groupes restreints pour favoriser l’échange et la participation.
+            </p>
+          </article>
+          <article class="mod-card">
+            <h3 class="mod-title">Langue &amp; rythme</h3>
+            <p>
+              Formations animées en français, avec adaptation possible du vocabulaire à votre secteur.
+              Rythme à définir selon vos disponibilités.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS SUR-MESURE -->
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Construire votre dispositif</div>
+          <h2 class="section-title">Comment travailler ensemble sur vos formations ?</h2>
+          <p class="section-subtitle">
+            Nous vous accompagnons depuis la définition des objectifs jusqu’au déploiement du plan de formation.
+          </p>
+        </div>
+
+        <div class="two-col">
+          <div class="text-block">
+            <div class="steps">
+              <div class="step">
+                <div class="step-number">1</div>
+                <div>
+                  <div class="step-title">Analyse de vos besoins</div>
+                  <div class="step-text">
+                    Entretien(s) avec les parties prenantes pour comprendre vos enjeux,
+                    vos publics cibles et vos contraintes.
+                  </div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-number">2</div>
+                <div>
+                  <div class="step-title">Proposition de parcours</div>
+                  <div class="step-text">
+                    Élaboration d’un dispositif détaillé : thématiques, calendrier,
+                    modalités pédagogiques, livrables.
+                  </div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-number">3</div>
+                <div>
+                  <div class="step-title">Animation &amp; suivi</div>
+                  <div class="step-text">
+                    Animation des sessions, recueil des retours, ajustements éventuels
+                    au fil du parcours.
+                  </div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-number">4</div>
+                <div>
+                  <div class="step-title">Bilan &amp; perspectives</div>
+                  <div class="step-text">
+                    Synthèse des enseignements, recommandation de suites possibles
+                    (coaching, ateliers complémentaires, etc.).
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="side-card">
+            <div class="side-card-title">Envie de construire un parcours ?</div>
+            <p>
+              Partagez-nous vos objectifs, le public visé et vos contraintes de calendrier.
+              Nous reviendrons vers vous avec une proposition structurée de formation.
+            </p>
+            <p style="margin-top:0.5rem;">
+              Contact direct :<br />
+              <strong>Tél. :</strong> +216 25 395 342<br />
+              <strong>E-mail :</strong>
+              <a href="mailto:hello@hrextentia.com">hello@hrextentia.com</a>
+            </p>
+          </aside>
+        </div>
+
+        <div class="cta-final">
+          <div>
+            <h3>Parlons de vos projets de formation</h3>
+            <p>
+              Décrivez-nous vos besoins, nous construirons avec vous un dispositif adapté à vos équipes.
+            </p>
+          </div>
+          <button class="cta-final-btn" onclick="window.location.href='index.html#contact'">
+            Contacter HR EXTENTIA
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-row">
+      <div>© 2024 HR EXTENTIA. All Right Reserved.</div>
+      <div class="footer-links">
+        <a href="index.html#accueil">Accueil</a>
+        <span>·</span>
+        <a href="index.html#services">Services RH</a>
+        <span>·</span>
+        <a href="formation.html">Formations</a>
+        <span>·</span>
+        <a href="a-propos.html">Le cabinet</a>
+        <span>·</span>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    navToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+      });
+    });
+  </script>
+</body>
+</html>
