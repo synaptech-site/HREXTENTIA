@@ -1,0 +1,795 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Le cabinet - HR EXTENTIA</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta
+    name="description"
+    content="Découvrez HR EXTENTIA : vision, mission, valeurs et approche d’accompagnement RH, recrutement, formation et consulting."
+  />
+
+  <style>
+    :root {
+      --primary: #111827;
+      --accent: #f5a623;
+      --accent-soft: #fff4dd;
+      --bg: #f9fafb;
+      --border: #e5e7eb;
+      --text: #4b5563;
+      --white: #ffffff;
+      --radius-lg: 18px;
+      --shadow-soft: 0 16px 30px rgba(15, 23, 42, 0.10);
+      --transition: all 0.22s ease;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      scroll-behavior: smooth;
+    }
+
+    a { text-decoration: none; color: inherit; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: 100%;
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+
+    /* HEADER / NAV */
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      background: rgba(255, 255, 255, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(229, 231, 235, 0.8);
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 0.9rem 0;
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+    }
+
+    .nav-logo-img {
+      height: 40px;
+      width: auto;
+    }
+
+    .nav-brand-text {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--primary);
+      font-weight: 600;
+    }
+
+    .nav-brand-text span:last-child {
+      font-size: 0.65rem;
+      opacity: 0.8;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      font-size: 0.9rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding-bottom: 0.25rem;
+      color: #6b7280;
+      font-weight: 500;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: var(--transition);
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .nav-links a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.55rem 1.2rem;
+      border-radius: 999px;
+      border: 1px solid var(--primary);
+      background: var(--primary);
+      color: var(--white);
+      font-size: 0.85rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: var(--transition);
+    }
+
+    .nav-cta:hover {
+      background: var(--white);
+      color: var(--primary);
+    }
+
+    .nav-toggle {
+      display: none;
+      border: none;
+      background: none;
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    /* HERO LITE */
+
+    .hero {
+      padding: 3rem 0 2.6rem;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .hero-inner {
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+    }
+
+    .hero-kicker {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-weight: 600;
+      color: var(--accent);
+    }
+
+    .hero-title {
+      font-size: clamp(2rem, 2.5vw + 1.3rem, 2.6rem);
+      color: var(--primary);
+      line-height: 1.1;
+    }
+
+    .hero-subtitle {
+      font-size: 0.98rem;
+      color: #6b7280;
+      max-width: 40rem;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.8rem;
+      font-size: 0.78rem;
+    }
+
+    .hero-tag {
+      padding: 0.35rem 0.8rem;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+      color: #6b7280;
+    }
+
+    /* Sections génériques */
+
+    section {
+      padding: 3rem 0;
+    }
+
+    .section-header {
+      margin-bottom: 1.8rem;
+    }
+
+    .section-kicker {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-weight: 600;
+      color: var(--accent);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin-bottom: 0.4rem;
+    }
+
+    .section-subtitle {
+      font-size: 0.94rem;
+      color: #6b7280;
+      max-width: 36rem;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .text-block {
+      font-size: 0.94rem;
+      color: #4b5563;
+    }
+
+    .text-block p + p {
+      margin-top: 0.5rem;
+    }
+
+    .side-card {
+      background: var(--white);
+      border-radius: 20px;
+      padding: 1.2rem 1.3rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.9rem;
+      color: #4b5563;
+    }
+
+    .side-card-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.4rem;
+    }
+
+    /* Valeurs */
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1.3rem;
+      margin-top: 0.8rem;
+    }
+
+    .value-card {
+      background: var(--white);
+      border-radius: var(--radius-lg);
+      padding: 1rem 1.1rem;
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+      font-size: 0.9rem;
+      color: #4b5563;
+      transition: var(--transition);
+      min-height: 150px;
+    }
+
+    .value-card::before {
+      content: "";
+      width: 20px;
+      height: 3px;
+      border-radius: 999px;
+      background: var(--accent);
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .value-title {
+      font-size: 0.98rem;
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.3rem;
+    }
+
+    .value-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent);
+    }
+
+    /* Approche */
+
+    .steps {
+      margin-top: 0.8rem;
+      display: grid;
+      gap: 0.7rem;
+      font-size: 0.9rem;
+    }
+
+    .step {
+      display: flex;
+      gap: 0.7rem;
+      align-items: flex-start;
+    }
+
+    .step-number {
+      width: 24px;
+      height: 24px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--primary);
+      font-size: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 600;
+      margin-top: 0.1rem;
+    }
+
+    .step-content-title {
+      font-weight: 600;
+      color: var(--primary);
+      font-size: 0.9rem;
+    }
+
+    .step-content-text {
+      font-size: 0.9rem;
+      color: #6b7280;
+    }
+
+    /* Équipe & partenaires */
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: flex-start;
+    }
+
+    .team-pill-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 0.7rem;
+      font-size: 0.78rem;
+    }
+
+    .team-pill {
+      padding: 0.25rem 0.7rem;
+      border-radius: 999px;
+      border: 1px solid #e5e7eb;
+      background: #f9fafb;
+      color: #6b7280;
+    }
+
+    .team-note {
+      font-size: 0.86rem;
+      color: #9ca3af;
+      margin-top: 0.4rem;
+    }
+
+    .cta-final {
+      background: var(--primary);
+      color: var(--white);
+      border-radius: 24px;
+      padding: 1.6rem 1.7rem;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-top: 2.2rem;
+    }
+
+    .cta-final h3 {
+      font-size: 1.2rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .cta-final p {
+      font-size: 0.9rem;
+      opacity: 0.92;
+    }
+
+    .cta-final-btn {
+      padding: 0.8rem 1.6rem;
+      border-radius: 999px;
+      border: none;
+      background: var(--accent);
+      color: #111827;
+      font-weight: 600;
+      font-size: 0.9rem;
+      cursor: pointer;
+      transition: var(--transition);
+      white-space: nowrap;
+    }
+
+    .cta-final-btn:hover {
+      transform: translateY(-1px);
+      box-shadow: var(--shadow-soft);
+    }
+
+    /* FOOTER */
+
+    footer {
+      border-top: 1px solid var(--border);
+      background: #111827;
+      color: #e5e7eb;
+      font-size: 0.8rem;
+      padding: 1.1rem 0 1.3rem;
+      margin-top: 3rem;
+    }
+
+    .footer-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .footer-links a { color: #d1d5db; }
+    .footer-links a:hover { color: var(--accent); }
+
+    /* RESPONSIVE TABLETTE */
+
+    @media (max-width: 960px) {
+      .two-col,
+      .team-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .values-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    /* RESPONSIVE MOBILE */
+
+    @media (max-width: 720px) {
+      .nav-links {
+        position: absolute;
+        inset: 58px 1.5rem auto 1.5rem;
+        background: #ffffff;
+        border-radius: 16px;
+        box-shadow: var(--shadow-soft);
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 0.8rem 1rem;
+        display: none;
+      }
+
+      .nav-links.open { display: flex; }
+
+      .nav-cta { display: none; }
+      .nav-toggle { display: block; }
+
+      .hero { padding-top: 2.4rem; }
+
+      .values-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .container {
+        padding: 0 1.1rem;
+      }
+    }
+
+    /* PETIT SMARTPHONE */
+
+    @media (max-width: 480px) {
+      body { font-size: 14px; }
+      .hero-title { font-size: 1.9rem; }
+      .hero-subtitle { font-size: 0.95rem; }
+      .hero { padding: 2.4rem 0 2.2rem; }
+      .nav { padding: 0.7rem 0; }
+      .nav-logo-img { height: 34px; }
+      .cta-final { padding: 1.3rem 1.2rem; }
+      .cta-final-btn { width: 100%; text-align: center; }
+    }
+  </style>
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <div class="container nav">
+      <div class="nav-left">
+        <a href="index.html#accueil">
+          <img src="assets/logo-hr-extentia.png" alt="HR EXTENTIA" class="nav-logo-img" />
+        </a>
+        <div class="nav-brand-text">
+          <span>HR EXTENTIA</span>
+          <span>CONSULTING &amp; TRAINING</span>
+        </div>
+      </div>
+
+      <nav class="nav-links" id="navLinks">
+        <a href="index.html#accueil">Accueil</a>
+        <a href="index.html#services">Services RH</a>
+        <a href="formation.html">Formations</a>
+        <a href="a-propos.html">Le cabinet</a>
+        <a href="index.html#contact">Contact</a>
+      </nav>
+
+      <button class="nav-cta" onclick="window.location.href='index.html#contact'">
+        Contacter un consultant
+      </button>
+
+      <button class="nav-toggle" id="navToggle" aria-label="Ouvrir le menu">
+        ☰
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-inner">
+        <div class="hero-kicker">Le cabinet</div>
+        <h1 class="hero-title">HR EXTENTIA, un partenaire engagé aux côtés des entreprises et des talents.</h1>
+        <p class="hero-subtitle">
+          Notre rôle : vous apporter une vision claire, structurée et opérationnelle des ressources humaines,
+          en conciliant les enjeux business, l’expérience collaborateur et la réalité terrain.
+        </p>
+        <div class="hero-tags">
+          <span class="hero-tag">Ressources humaines</span>
+          <span class="hero-tag">Recrutement</span>
+          <span class="hero-tag">Formation</span>
+          <span class="hero-tag">Consulting</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Vision / Mission -->
+    <section>
+      <div class="container two-col">
+        <div>
+          <div class="section-header">
+            <div class="section-kicker">Notre vision &amp; notre mission</div>
+            <h2 class="section-title">Faire des ressources humaines un levier de performance durable</h2>
+          </div>
+          <div class="text-block">
+            <p>
+              Chez HR EXTENTIA, nous sommes convaincus que la fonction RH joue un rôle central
+              dans la réussite des organisations. Au-delà des obligations administratives,
+              elle doit permettre de structurer, développer et engager les équipes.
+            </p>
+            <p>
+              Notre mission est d’accompagner les entreprises à chaque étape de ce chemin :
+              clarifier leurs besoins, mettre en place des pratiques RH fiables et faire évoluer
+              leurs modes de fonctionnement pour soutenir leur croissance.
+            </p>
+          </div>
+        </div>
+
+        <aside class="side-card">
+          <div class="side-card-title">Concrètement, cela signifie :</div>
+          <ul style="list-style:none; padding-left:0; margin-top:0.4rem;">
+            <li>• Comprendre vos enjeux, votre contexte et votre culture.</li>
+            <li>• Co-construire des solutions RH adaptées et réalistes.</li>
+            <li>• Soutenir vos équipes dans la durée, pas uniquement sur le papier.</li>
+          </ul>
+        </aside>
+      </div>
+    </section>
+
+    <!-- Valeurs -->
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Nos valeurs</div>
+          <h2 class="section-title">Ce qui guide notre manière de travailler</h2>
+          <p class="section-subtitle">
+            Nos interventions s’appuient sur un socle de principes simples, mais non négociables.
+          </p>
+        </div>
+
+        <div class="values-grid">
+          <article class="value-card">
+            <h3 class="value-title">Proximité</h3>
+            <p>
+              Un interlocuteur accessible, à l’écoute de vos enjeux et de vos contraintes.
+              Nous privilégions les échanges directs et transparents.
+            </p>
+          </article>
+          <article class="value-card">
+            <h3 class="value-title">Pragmatisme</h3>
+            <p>
+              Des recommandations opérationnelles, applicables sur le terrain, avec un souci
+              constant d’efficacité et de faisabilité.
+            </p>
+          </article>
+          <article class="value-card">
+            <h3 class="value-title">Engagement</h3>
+            <p>
+              Nous nous impliquons réellement aux côtés de nos clients, avec une logique de partenariat
+              et de résultats partagés.
+            </p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- Approche -->
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Notre approche</div>
+          <h2 class="section-title">Un accompagnement structuré, du diagnostic à la mise en œuvre</h2>
+          <p class="section-subtitle">
+            Chaque projet suit une démarche claire, tout en restant adaptable à la réalité
+            de votre organisation.
+          </p>
+        </div>
+
+        <div class="two-col">
+          <div class="text-block">
+            <div class="steps">
+              <div class="step">
+                <div class="step-number">1</div>
+                <div>
+                  <div class="step-content-title">Analyse &amp; cadrage</div>
+                  <div class="step-content-text">
+                    Compréhension de votre contexte, de vos enjeux et de vos attentes.
+                    Nous clarifions avec vous le périmètre, les priorités et le planning.
+                  </div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-number">2</div>
+                <div>
+                  <div class="step-content-title">Co-construction des solutions</div>
+                  <div class="step-content-text">
+                    Élaboration de dispositifs RH, outils, processus ou programmes de formation,
+                    en lien avec vos équipes et votre culture.
+                  </div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-number">3</div>
+                <div>
+                  <div class="step-content-title">Déploiement &amp; accompagnement</div>
+                  <div class="step-content-text">
+                    Mise en œuvre opérationnelle, accompagnement des managers, communication interne
+                    et ajustements nécessaires.
+                  </div>
+                </div>
+              </div>
+              <div class="step">
+                <div class="step-number">4</div>
+                <div>
+                  <div class="step-content-title">Suivi &amp; amélioration continue</div>
+                  <div class="step-content-text">
+                    Mesure des impacts, retours d’expérience, et adaptation des dispositifs RH
+                    pour rester alignés sur vos objectifs.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="side-card">
+            <div class="side-card-title">Un accompagnement flexible</div>
+            <p>
+              Selon vos besoins, nous pouvons intervenir de manière ponctuelle (projet ciblé)
+              ou dans la durée (accompagnement régulier de la fonction RH ou de la direction).
+            </p>
+            <p style="margin-top:0.5rem;">
+              L’objectif : vous donner les moyens de prendre les bonnes décisions RH,
+              au bon moment, avec le niveau d’expertise adapté.
+            </p>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- Équipe & partenaires -->
+    <section>
+      <div class="container">
+        <div class="section-header">
+          <div class="section-kicker">Équipe &amp; partenaires</div>
+          <h2 class="section-title">Des profils complémentaires au service de vos projets</h2>
+          <p class="section-subtitle">
+            HR EXTENTIA s’appuie sur un réseau de professionnels RH, de formateurs et de consultants
+            aux expertises variées.
+          </p>
+        </div>
+
+        <div class="team-grid">
+          <div class="text-block">
+            <p>
+              Nous privilégions des profils disposant d’une double expérience : opérationnelle
+              au sein d’entreprises et en accompagnement de structures variées (PME, ETI, grands comptes).
+            </p>
+            <p>
+              Cette combinaison permet de parler le même langage que vos équipes tout en apportant
+              un regard extérieur et structurant.
+            </p>
+            <div class="team-pill-row">
+              <span class="team-pill">Ressources humaines</span>
+              <span class="team-pill">Recrutement</span>
+              <span class="team-pill">Développement des compétences</span>
+              <span class="team-pill">Management</span>
+            </div>
+            <div class="team-note">
+              (Vous pourrez ici, plus tard, présenter les membres clés de l’équipe avec photo et fonction.)
+            </div>
+          </div>
+
+          <aside class="side-card">
+            <div class="side-card-title">Un réseau de partenaires</div>
+            <p>
+              Selon la nature des projets, nous collaborons avec un réseau de partenaires
+              (experts métiers, formateurs spécialisés, juristes, etc.) pour proposer un accompagnement
+              complet et cohérent.
+            </p>
+            <p style="margin-top:0.5rem;">
+              Vous bénéficiez ainsi d’un point d’entrée unique, HR EXTENTIA, pour coordonner l’ensemble
+              des expertises nécessaires.
+            </p>
+          </aside>
+        </div>
+
+        <div class="cta-final">
+          <div>
+            <h3>Envie d’en savoir plus sur HR EXTENTIA&nbsp;?</h3>
+            <p>
+              Discutons de vos projets RH, de vos enjeux de recrutement ou de formation.
+            </p>
+          </div>
+          <button class="cta-final-btn" onclick="window.location.href='index.html#contact'">
+            Prendre contact avec le cabinet
+          </button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="container footer-row">
+      <div>© 2024 HR EXTENTIA. All Right Reserved.</div>
+      <div class="footer-links">
+        <a href="index.html#accueil">Accueil</a>
+        <span>·</span>
+        <a href="index.html#services">Services RH</a>
+        <span>·</span>
+        <a href="formation.html">Formations</a>
+        <span>·</span>
+        <a href="a-propos.html">Le cabinet</a>
+        <span>·</span>
+        <a href="index.html#contact">Contact</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const navToggle = document.getElementById("navToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    navToggle.addEventListener("click", () => {
+      navLinks.classList.toggle("open");
+    });
+
+    navLinks.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+      });
+    });
+  </script>
+</body>
+</html>
